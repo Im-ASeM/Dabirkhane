@@ -94,6 +94,42 @@ namespace Dabirkhane.Migrations
                     b.ToTable("Messages_tbl");
                 });
 
+            modelBuilder.Entity("MsgLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CreateDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("MsgId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isDone")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MsgId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("MsgLogs_tbl");
+                });
+
             modelBuilder.Entity("Recivers", b =>
                 {
                     b.Property<int>("Id")
@@ -282,10 +318,27 @@ namespace Dabirkhane.Migrations
             modelBuilder.Entity("Messages", b =>
                 {
                     b.HasOne("Users", "SenderUser")
-                        .WithMany()
+                        .WithMany("sentMessage")
                         .HasForeignKey("SenderUserId");
 
                     b.Navigation("SenderUser");
+                });
+
+            modelBuilder.Entity("MsgLog", b =>
+                {
+                    b.HasOne("Messages", "Msg")
+                        .WithMany("logs")
+                        .HasForeignKey("MsgId");
+
+                    b.HasOne("Users", "User")
+                        .WithMany("msgLogs")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Msg");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Recivers", b =>
@@ -295,7 +348,7 @@ namespace Dabirkhane.Migrations
                         .HasForeignKey("MessageId");
 
                     b.HasOne("Users", "Reciver")
-                        .WithMany()
+                        .WithMany("getMessage")
                         .HasForeignKey("ReciverId");
 
                     b.Navigation("Message");
@@ -322,6 +375,8 @@ namespace Dabirkhane.Migrations
                 {
                     b.Navigation("files");
 
+                    b.Navigation("logs");
+
                     b.Navigation("recivers");
 
                     b.Navigation("replies");
@@ -330,6 +385,15 @@ namespace Dabirkhane.Migrations
             modelBuilder.Entity("Reply", b =>
                 {
                     b.Navigation("files");
+                });
+
+            modelBuilder.Entity("Users", b =>
+                {
+                    b.Navigation("getMessage");
+
+                    b.Navigation("msgLogs");
+
+                    b.Navigation("sentMessage");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,6 +9,7 @@ public class Context : DbContext
     public DbSet<Files> Files_tbl { get; set; }
     public DbSet<smsToken> smsToken_tbl { get; set; }
     public DbSet<smsUser> sms_tbl { get; set; }
+    public DbSet<MsgLog> MsgLogs_tbl { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

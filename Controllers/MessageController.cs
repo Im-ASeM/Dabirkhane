@@ -20,22 +20,52 @@ public class MessageController : Controller
     {
         var UserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-        var query = db.Messages_tbl
-        .Include(x => x.files)
-        .Include(x => x.recivers)
-            .ThenInclude(x => x.Reciver)
-        .Include(x => x.SenderUser)
-        .Include(x => x.replies)
-        .Where(x => x.SenderUserId == UserId || x.recivers.Any(r => r.ReciverId == UserId));
+        // var query = db.Messages_tbl
+        // .Include(x => x.files)
+        // .Include(x => x.recivers)
+        //     .ThenInclude(x => x.Reciver)
+        // .Include(x => x.SenderUser)
+        // .Include(x => x.replies)
+        // .Where(x => x.SenderUserId == UserId || x.recivers.Any(r => r.ReciverId == UserId));  //بهینه سازی ضعیف ، مرور زمان بهینه نیست با دیتا بیس بزرگ
+
+        var query = db.Users_tbl.Where(x=>x.Id == UserId) // بهینه سازی فوق العاده ، سرعت بیشتر با دیستابیس های بزرگتر
+            .Include(x=> x.sentMessage)
+                .ThenInclude(x=>x.recivers)
+                    .ThenInclude(x=> x.Reciver)
+            .Include(x=> x.sentMessage)
+                .ThenInclude(x=>x.files)
+            .Include(x=> x.sentMessage)
+                .ThenInclude(x=>x.SenderUser)
+            .Include(x=> x.sentMessage)
+                .ThenInclude(x=>x.replies)
+            .Include(x=> x.sentMessage)
+                .ThenInclude(x=>x.logs)
+            .SelectMany(x=>x.sentMessage)
+            .ToList();
+            
+        query.AddRange(
+                db.Users_tbl.Where(x=>x.Id == UserId)
+                .Include(x=>x.getMessage)
+                    .ThenInclude(x=> x.Message)
+                        .ThenInclude(x=> x.SenderUser)
+                .Include(x=>x.getMessage)
+                    .ThenInclude(x=> x.Message)
+                        .ThenInclude(x=>x.recivers)
+                            .ThenInclude(x=>x.Reciver)
+                .SelectMany(x=>x.getMessage.Select(z=>z.Message))
+                .ToList()
+            );
+            query.OrderByDescending(x=>x.Id);
 
         var DataCount = query.Count();
 
-        var MessagesData = query.Skip((Id - 1) * 10)
+        var MessagesData = query.AsQueryable()
+        .Skip((Id - 1) * 10)
         .Take(10)
         .ToList();
 
         ViewBag.Messages = MessagesData;
-        ViewBag.DataPageCount = (int)Math.Ceiling((double)DataCount/10);
+        ViewBag.DataPageCount = (int)Math.Ceiling((double)DataCount / 10);
         ViewBag.DataCount = DataCount;
         ViewBag.DataPage = Id;
         return View();
@@ -176,6 +206,7 @@ public class MessageController : Controller
 
             }
         }
+        Log.NewMsgLog(db, SenderUserId, messageId, 1, true);
         return View();
     }
     public IActionResult test()

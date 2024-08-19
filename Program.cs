@@ -1,4 +1,3 @@
-using System;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,15 +6,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>();
 
+builder.Services.AddControllers()
+        .AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+        });
 
-builder.Services.AddAuthentication(options =>  
-{  
-    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;  
-    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;  
-    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;  
-})  
-.AddCookie(options =>  
-{  
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+})
+.AddCookie(options =>
+{
     options.LoginPath = "/auth/login"; // Redirect to the login page  
     options.AccessDeniedPath = "/auth/NotAuthorized"; // Redirect to access denied page  
     options.LogoutPath = "/auth/login"; // Optional, add if you have a logout page  

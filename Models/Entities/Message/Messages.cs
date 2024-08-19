@@ -10,6 +10,7 @@ public class Messages : Parent
     public List<Files> files { get; set; }
     public List<Recivers> recivers { get; set; }
     public List<Reply> replies { get; set; }
+    public List<MsgLog> logs { get; set; }
 
     public Messages()
     {

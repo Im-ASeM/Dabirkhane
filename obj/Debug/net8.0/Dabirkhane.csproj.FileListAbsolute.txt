@@ -139,3 +139,4 @@ C:\Users\asemn\Desktop\qms-master\Dabirkhane\obj\Debug\net8.0\Dabirkhane.pdb
 C:\Users\asemn\Desktop\qms-master\Dabirkhane\obj\Debug\net8.0\Dabirkhane.genruntimeconfig.cache
 C:\Users\asemn\Desktop\qms-master\Dabirkhane\obj\Debug\net8.0\ref\Dabirkhane.dll
 C:\Users\asemn\Desktop\qms-master\Dabirkhane\bin\Debug\net8.0\HtmlAgilityPack.dll
+C:\Users\asemn\Desktop\qms-master\Dabirkhane\obj\Debug\net8.0\Dabirkhane.sourcelink.json

@@ -10,6 +10,9 @@ public class Users : Parent
     public string? PerconalCode { get; set; }
     public string? Profile { get; set; }
     public bool isActive { get; set; }
+    public List<MsgLog> msgLogs { get; set; }
+    public List<Messages> sentMessage { get; set; }
+    public List<Recivers> getMessage { get; set; }
 
     public Users()
     {
@@ -22,5 +25,6 @@ public class Users : Parent
         this.NatinalCode= null;
         this.PerconalCode= null;
         this.Profile = null;
+        this.msgLogs = new List<MsgLog>();
     }
 }

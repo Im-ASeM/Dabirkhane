@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OW0DHZ7uOertD2GyExC4c8w8zdFzkHfFxpa1G7hRuto=",
+  "Hash": "pE6Aqf+6iY+eOj2N2RPi/KwQOvlBZ6IpIq/QHxQkEa8=",
   "Source": "Dabirkhane",
   "BasePath": "_content/Dabirkhane",
   "Mode": "Default",
@@ -36345,6 +36345,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\EmailFiles\\ID19-b3348aa8-064c-4c32-8378-378521e69fab.jpg"
     },
     {
+      "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\EmailFiles\\ID2-01f42486-5943-4c75-a644-85c1f4ce4b27.png",
+      "SourceId": "Dabirkhane",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\",
+      "BasePath": "_content/Dabirkhane",
+      "RelativePath": "uploads/EmailFiles/ID2-01f42486-5943-4c75-a644-85c1f4ce4b27.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\EmailFiles\\ID2-01f42486-5943-4c75-a644-85c1f4ce4b27.png"
+    },
+    {
       "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\EmailFiles\\ID2-16a6c87a-5f61-4b5a-a733-1f173c7de1a4.jfif",
       "SourceId": "Dabirkhane",
       "SourceType": "Discovered",
@@ -36400,6 +36419,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\EmailFiles\\ID2-31021f59-5bff-4cfc-ad70-b0b9529103c8.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\EmailFiles\\ID2-4ad32d8b-6e42-4484-9afe-15483f191b60.png",
+      "SourceId": "Dabirkhane",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\",
+      "BasePath": "_content/Dabirkhane",
+      "RelativePath": "uploads/EmailFiles/ID2-4ad32d8b-6e42-4484-9afe-15483f191b60.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\EmailFiles\\ID2-4ad32d8b-6e42-4484-9afe-15483f191b60.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\EmailFiles\\ID2-50e3005f-3b2d-4443-8c5e-a9c615470bcd.png",
@@ -36478,6 +36516,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\EmailFiles\\ID2-728db25a-0f48-4b2a-8a38-edec5057b5f9.jpg"
     },
     {
+      "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\EmailFiles\\ID2-a4df8478-4798-4eb0-b446-236b82347fcd.png",
+      "SourceId": "Dabirkhane",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\",
+      "BasePath": "_content/Dabirkhane",
+      "RelativePath": "uploads/EmailFiles/ID2-a4df8478-4798-4eb0-b446-236b82347fcd.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\EmailFiles\\ID2-a4df8478-4798-4eb0-b446-236b82347fcd.png"
+    },
+    {
       "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\EmailFiles\\ID2-ad022394-7c71-4c61-a768-21c8cfa676a1.png",
       "SourceId": "Dabirkhane",
       "SourceType": "Discovered",
@@ -36495,6 +36552,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\EmailFiles\\ID2-ad022394-7c71-4c61-a768-21c8cfa676a1.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\EmailFiles\\ID2-e1f87287-7afc-4a11-85c7-40aac61691d7.png",
+      "SourceId": "Dabirkhane",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\",
+      "BasePath": "_content/Dabirkhane",
+      "RelativePath": "uploads/EmailFiles/ID2-e1f87287-7afc-4a11-85c7-40aac61691d7.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\EmailFiles\\ID2-e1f87287-7afc-4a11-85c7-40aac61691d7.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\EmailFiles\\ID2(17)-bb72b44e-fbdd-4a40-9b8c-fed6be1f247a.png",
