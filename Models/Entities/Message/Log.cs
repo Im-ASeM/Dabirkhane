@@ -7,9 +7,4 @@ public class MsgLog:Parent
     public int? MsgId { get; set; }
     public Messages? Msg { get; set; }
     public string Description { get; set; }
-    public MsgLog()
-    {
-        this.MsgId = null;
-        this.Msg = new Messages();
-    }
 }

@@ -2,11 +2,11 @@ using System.Data.Common;
 
 public static class Log
 {
-    public static void NewMsgLog(Context db , int userid, int? MsgId , int status , bool isDone){
+    public static void NewMsgLog(Context db , int userid , int status , bool isDone , int? MessageId = null){
 
         string description = "";
         var user = db.Users_tbl.Find(userid);
-        var msg = db.Messages_tbl.Find(MsgId);
+        var msg = db.Messages_tbl.Find(MessageId);
 
         switch(status){
             case 1:     // added Message
@@ -27,10 +27,11 @@ public static class Log
         db.MsgLogs_tbl.Add(new MsgLog{
             CreateDateTime = DateTime.UtcNow,
             isDone = isDone,
-            MsgId = MsgId,
+            MsgId = msg != null ? msg.Id : null,
             Status = status,
             UserId = userid,
             Description = description
         });
+        db.SaveChanges();
     }
 }

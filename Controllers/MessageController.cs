@@ -203,7 +203,7 @@ public class MessageController : Controller
 
             }
         }
-        Log.NewMsgLog(db, SenderUserId, messageId, 1, true);
+        Log.NewMsgLog(db, SenderUserId, 1, true, messageId);
         return View();
     }
 
@@ -278,7 +278,7 @@ public class MessageController : Controller
             .Include(x => x.sentMessage)
                 .ThenInclude(x => x.SenderUser)
             .SelectMany(x => x.sentMessage)
-            
+
             .ToList();
 
         query.AddRange(
@@ -340,14 +340,16 @@ public class MessageController : Controller
             .First();
         if (check.SenderUserId == UserId)
         {
-            if(check.Status4Sender == 3){
+            if (check.Status4Sender == 3)
+            {
                 return RedirectToAction(route, "Message");
             }
             check.Status4Sender = 2;
         }
         else
         {
-            if(check.recivers.FirstOrDefault(x => x.ReciverId == UserId).Status == 3){
+            if (check.recivers.FirstOrDefault(x => x.ReciverId == UserId).Status == 3)
+            {
                 return RedirectToAction(route, "Message");
             }
             check.recivers.FirstOrDefault(x => x.ReciverId == UserId).Status = 2;
@@ -379,7 +381,8 @@ public class MessageController : Controller
         return RedirectToAction("RecycleBin");
     }
 
-    public IActionResult restore(int Id){
+    public IActionResult restore(int Id)
+    {
         var UserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var check = db.Messages_tbl
             .Where(x => x.Id == Id)
@@ -387,7 +390,8 @@ public class MessageController : Controller
             .First();
         if (check.SenderUserId == UserId)
         {
-            if(check.Status4Sender == 3){
+            if (check.Status4Sender == 3)
+            {
                 return RedirectToAction("RecycleBin");
             }
 
@@ -395,7 +399,8 @@ public class MessageController : Controller
         }
         else
         {
-            if(check.recivers.FirstOrDefault(x => x.ReciverId == UserId).Status == 3){
+            if (check.recivers.FirstOrDefault(x => x.ReciverId == UserId).Status == 3)
+            {
                 return RedirectToAction("RecycleBin");
             }
 
@@ -404,6 +409,92 @@ public class MessageController : Controller
         db.Messages_tbl.Update(check);
         db.SaveChanges();
         return RedirectToAction("RecycleBin");
+    }
+
+    public IActionResult ReturnEmail(int id)
+    {
+        var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var check = db.Messages_tbl
+            .Where(x => x.Id == id)
+            .Include(x => x.recivers)
+                .ThenInclude(x => x.Reciver)
+            .Include(x => x.SenderUser)
+            .Include(x => x.files)
+            .FirstOrDefault();
+
+        if (check == null)
+        {
+            return RedirectToAction("Index");
+        }
+        else if (!(check.SenderUserId == userId || check.recivers.Any(x => x.ReciverId == userId)))
+        {
+            return RedirectToAction("index");
+            //log false see
+        }
+        else
+        {
+            var msg = new
+            {
+                check.Id,
+                check.files,
+                check.SerialNumber,
+                check.Subject,
+                check.BodyText,
+                CreateDateTime = PubDo.persianDate((DateTime)check.CreateDateTime),
+                check.SenderUser,
+                ReciversUser = check.recivers,
+
+            };
+            ViewBag.msg = msg;
+
+            if (check.recivers.Any(x => x.ReciverId == userId && x.isRead == false))
+            {
+
+                check.recivers.First(x => x.ReciverId == userId).isRead = true;
+                db.Messages_tbl.Update(check);
+                Log.NewMsgLog(db, userId, 2, true, check.Id);
+                db.SaveChanges();
+            }
+            return View();
+        }
+    }
+
+    public IActionResult ReturnEvant(int id, int page = 1)
+    {
+        var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var check = db.Messages_tbl
+            .Where(x => x.Id == id)
+            .Include(x => x.logs)
+                .ThenInclude(x => x.User)
+            .Include(x => x.recivers)
+            .FirstOrDefault();
+
+        if (check == null)
+        {
+            return RedirectToAction("Index");
+        }
+        else if (!(check.SenderUserId == userId || check.recivers.Any(x => x.ReciverId == userId)))
+        {
+            return RedirectToAction("index");
+            //log false see
+        }
+        else
+        {
+            var msg = new
+            {
+                check.Id,
+                check.SerialNumber,
+                logCount = (int)Math.Ceiling((double)check.logs.Count() / 10),
+                logs = check.logs
+                   .OrderByDescending(x => x.Id)
+                   .Skip((page - 1) * 10)
+                   .Take(10)
+                   .ToList(),
+                logPage = page
+            };
+            ViewBag.msg = msg;
+            return View();
+        }
     }
 
     public IActionResult test()
@@ -453,7 +544,12 @@ public class MessageController : Controller
             isActive = true
         });
         db.SaveChanges();
-        return Ok();
+        return Ok("done");
+    }
+    public IActionResult test2()
+    {
+        Log.NewMsgLog(db, 1, 1, false);
+        return Ok("done");
     }
 }
 

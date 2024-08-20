@@ -85,7 +85,7 @@
         align: []
       }
     ],
-    ['link', 'image', 'video', 'formula'],
+    ['link'],
     ['clean']
   ];
   const fullEditor = new Quill('#full-editor', {
