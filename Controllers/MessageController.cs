@@ -33,13 +33,7 @@ public class MessageController : Controller
                 .ThenInclude(x=>x.recivers)
                     .ThenInclude(x=> x.Reciver)
             .Include(x=> x.sentMessage)
-                .ThenInclude(x=>x.files)
-            .Include(x=> x.sentMessage)
                 .ThenInclude(x=>x.SenderUser)
-            .Include(x=> x.sentMessage)
-                .ThenInclude(x=>x.replies)
-            .Include(x=> x.sentMessage)
-                .ThenInclude(x=>x.logs)
             .SelectMany(x=>x.sentMessage)
             .ToList();
             

@@ -1,0 +1,283 @@
+<!-- Content -->
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="py-3 breadcrumb-wrapper mb-4">
+        <span class="text-muted fw-light">کاربر /</span> @ViewBag.data.FirstName @ViewBag.data.LastName
+    </h4>
+    <div class="row gy-4">
+        <!-- User Sidebar -->
+        <div class="col-xl-4 col-lg-5 col-md-5 order-1 order-md-0">
+            <!-- User Card -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="user-avatar-section">
+                        <div class="d-flex align-items-center flex-column">
+                            <img class="img-fluid rounded my-4" src="@ViewBag.data.Profile" height="110" width="110"
+                                alt="User avatar">
+                            <div class="user-info text-center">
+                                <h5 class="mb-2">@ViewBag.data.FirstName @ViewBag.data.LastName</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-around flex-wrap my-4 py-3">
+                        <div class="d-flex align-items-center me-4 mt-3 gap-3">
+                            <span class="badge bg-label-primary p-2 rounded mt-1"><i
+                                    class="bx bx-check bx-sm"></i></span>
+                            <div>
+                                <h5 class="mb-0">@ViewBag.dataSentCount</h5>
+                                <span>ایمیل های ارسال شده</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center me-4 mt-3 gap-3">
+                            <span class="badge bg-label-primary p-2 rounded mt-1"><i
+                                    class="bx bx-customize bx-sm"></i></span>
+                            <div>
+                                <h5 class="mb-0">@ViewBag.dataReciveCount</h5>
+                                <span>ایمیل های دریافت شده</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h5 class="pb-2 border-bottom mb-4 secondary-font">جزئیات</h5>
+                    <div class="info-container">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">نام:</span>
+                                <span>@ViewBag.data.FirstName</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">نام خانوادگی:</span>
+                                <span>@ViewBag.data.LastName</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">نام کاربری:</span>
+                                <span>@ViewBag.data.Username</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">تاریخ عضویت:</span>
+                                <span>@PubDo.persianDate(ViewBag.data.CreateDateTime).Item1</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">وضعیت:</span>
+                                <span class="badge bg-label-success">فعال</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">شناسه پرسنلی:</span>
+                                <span>@ViewBag.data.PerconalCode</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">تماس:</span>
+                                <span class="d-inline-block" dir="ltr">@ViewBag.data.Phone</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-bold me-2">کشور:</span>
+                                <span>جمهوری اسلامی ایران</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /User Card -->
+        </div>
+        <!--/ User Sidebar -->
+
+        <!-- User Content -->
+        <div class="col-xl-8 col-lg-7 col-md-7 order-0 order-md-1">
+
+            <!-- Activity Timeline -->
+            <div class="card mb-4">
+                <div class="card-header mb-3">
+                    <h5 class="mb-0">خط زمانی فعالیت کاربر</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="timeline">
+                        @* @foreach(var item in ViewBag.dataUserLog.Item1){
+                        <li class="timeline-item timeline-item-transparent">
+                        <span class="timeline-point timeline-point-primary"></span>
+                        <div class="timeline-event">
+                        <div class="timeline-header mb-1">
+                        <h6 class="mb-0 mt-n1">@item.LogAction</h6>
+                        <small class="text-muted mt-1 mt-sm-0 mb-1 mb-sm-0">@item.CreateTime @item.CreateDate</small>
+                        </div>
+                        <p class="mb-2">@Log.GetUserLog(item)</p>
+                        </div>
+                        </li>
+                        } *@
+                        <p class="text-danger">L156 Fixed Soon User Log</p>
+                    </ul>
+                </div>
+            </div>
+            <!-- /Activity Timeline -->
+
+            <!-- Project table -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">آخرین ایمیل های ارسال شده توسط @ViewBag.data.FirstName @ViewBag.data.LastName</h5>
+                </div>
+                <div class="table-responsive mb-3">
+                    <table class="table  border-top">
+                        <thead>
+                            <th>موضوع</th>
+                            <th>متن ایمیل</th>
+                            <th>نام فرستنده</th>
+                            <th>دریافت کنندگان</th>
+                            <th>رونوشت ها</th>
+                            <th>تاریخ ایجاد</th>
+                            <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            @foreach (var item in ViewBag.dataSent)
+
+                            {
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            @item.Subject.Substring(0, Math.Min(20, item.Subject.Length))
+                                        </strong>
+                                    </td>
+                                    <td>@PubDo.texter(item.BodyText).Substring(0, Math.Min(40, PubDo.texter(item.BodyText).Length))</td>
+                                    <td>
+                                        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                                class="avatar avatar-xs pull-up"
+                                                title="@item.SenderUser.FirstName @item.SenderUser.LastName">
+                                                <img src="@item.SenderUser.Profile" alt="آواتار" class="rounded-circle">
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        @foreach (var recive in item.recivers)
+
+                                        {
+                                            @if (recive.Type == "to")
+
+                                            {
+                                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                                    <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                                        class="avatar avatar-xs pull-up"
+                                                        title="@recive.Reciver.FirstName @recive.Reciver.LastName">
+                                                        <img src="@recive.Reciver.Profile" alt="آواتار" class="rounded-circle">
+                                                    </li>
+                                                </ul>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @foreach (var recive in item.recivers)
+
+                                        {
+                                            @if (recive.Type == "cc")
+
+                                            {
+                                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                                    <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                                        class="avatar avatar-xs pull-up"
+                                                        title="@recive.Reciver.FirstName @recive.Reciver.LastName">
+                                                        <img src="@recive.Reciver.Profile" alt="آواتار" class="rounded-circle">
+                                                    </li>
+                                                </ul>
+                                            }
+                                        }
+                                    <td>@PubDo.persianDate(item.CreateDateTime).Item1 @PubDo.persianDate(item.CreateDateTime).Item2</td>
+                                    <td>
+                                                <a class="btn-sm btn-outline-dark" href="/Email/ReturnEmail/@item.Id">
+                                                    بازکردن</a>
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /Project table -->
+
+            <!-- Invoice table -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">آخرین ایمیل های دریافت شده توسط @ViewBag.data.FirstName @ViewBag.data.LastName</h5>
+                </div>
+                <div class="table-responsive mb-3">
+                    <table class="table  border-top">
+                        <thead>
+                            <th>موضوع</th>
+                            <th>متن ایمیل</th>
+                            <th>نام فرستنده</th>
+                            <th>دریافت کنندگان</th>
+                            <th>رونوشت ها</th>
+                            <th>تاریخ ایجاد</th>
+                            <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            @foreach (var item in ViewBag.dataRecive)
+
+                            {
+                                <tr>
+                                    <td>
+                                        <strong>
+                                            @item.Subject.Substring(0, Math.Min(20, item.Subject.Length))
+                                        </strong>
+                                    </td>
+                                    <td>@PubDo.texter(item.BodyText).Substring(0, Math.Min(40, PubDo.texter(item.BodyText).Length))</td>
+                                    <td>
+                                        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                                class="avatar avatar-xs pull-up"
+                                                title="@item.SenderUser.FirstName @item.SenderUser.LastName">
+                                                <img src="@item.SenderUser.Profile" alt="آواتار" class="rounded-circle">
+                                            </li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        @foreach (var recive in item.recivers)
+
+                                        {
+                                            @if (recive.Type == "to")
+
+                                            {
+                                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                                    <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                                        class="avatar avatar-xs pull-up"
+                                                        title="@recive.Reciver.FirstName @recive.Reciver.LastName">
+                                                        <img src="@recive.Reciver.Profile" alt="آواتار" class="rounded-circle">
+                                                    </li>
+                                                </ul>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @foreach (var recive in item.recivers)
+
+                                        {
+                                            @if (recive.Type == "cc")
+
+                                            {
+                                                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                                    <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                                        class="avatar avatar-xs pull-up"
+                                                        title="@recive.Reciver.FirstName @recive.Reciver.LastName">
+                                                        <img src="@recive.Reciver.Profile" alt="آواتار" class="rounded-circle">
+                                                    </li>
+                                                </ul>
+                                            }
+                                        }
+                                    <td>@PubDo.persianDate(item.CreateDateTime).Item1 @PubDo.persianDate(item.CreateDateTime).Item2</td>
+                                    <td>
+                                        <a class="btn-sm btn-outline-dark" href="/Email/ReturnEmail/@item.Id">
+                                                    بازکردن</a>
+                                    </td>
+
+                                </tr>
+                            }
+                            </thead>
+                    </table>
+                </div>
+            </div>
+            <!-- /Invoice table -->
+        </div>
+        <!--/ User Content -->
+    </div>
+</div>
+<!--/ Content -->

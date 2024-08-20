@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pE6Aqf+6iY+eOj2N2RPi/KwQOvlBZ6IpIq/QHxQkEa8=",
+  "Hash": "7RPUsDdkAO3nfiLkGprrdzYhvBDwY7LlIKqf/ZZL+hY=",
   "Source": "Dabirkhane",
   "BasePath": "_content/Dabirkhane",
   "Mode": "Default",
@@ -36685,6 +36685,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\EmailFiles\\ID3-483db3ac-b7e5-4a0e-a7d7-4d731517e095.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\EmailFiles\\ID3-568ac8ba-bdb7-48de-902a-504bb061d028.png",
+      "SourceId": "Dabirkhane",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\",
+      "BasePath": "_content/Dabirkhane",
+      "RelativePath": "uploads/EmailFiles/ID3-568ac8ba-bdb7-48de-902a-504bb061d028.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\EmailFiles\\ID3-568ac8ba-bdb7-48de-902a-504bb061d028.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\EmailFiles\\ID3-8c070420-4cdd-4ed3-b5d3-89a5fadf256a.png",
