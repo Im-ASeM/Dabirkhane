@@ -28,28 +28,30 @@ public class MessageController : Controller
         // .Include(x => x.replies)
         // .Where(x => x.SenderUserId == UserId || x.recivers.Any(r => r.ReciverId == UserId));  //بهینه سازی ضعیف ، مرور زمان بهینه نیست با دیتا بیس بزرگ
 
-        var query = db.Users_tbl.Where(x=>x.Id == UserId) // بهینه سازی فوق العاده ، سرعت بیشتر با دیستابیس های بزرگتر
-            .Include(x=> x.sentMessage)
-                .ThenInclude(x=>x.recivers)
-                    .ThenInclude(x=> x.Reciver)
-            .Include(x=> x.sentMessage)
-                .ThenInclude(x=>x.SenderUser)
-            .SelectMany(x=>x.sentMessage)
+        var query = db.Users_tbl.Where(x => x.Id == UserId) // بهینه سازی فوق العاده ، سرعت بیشتر با دیستابیس های بزرگتر
+            .Include(x => x.sentMessage)
+                .ThenInclude(x => x.recivers)
+                    .ThenInclude(x => x.Reciver)
+            .Include(x => x.sentMessage)
+                .ThenInclude(x => x.SenderUser)
+            .SelectMany(x => x.sentMessage)
+            .Where(x => (x.SenderUserId == UserId && x.Status4Sender == 1) || x.recivers.Any(z => z.ReciverId == UserId && z.Status == 1))
             .ToList();
-            
+
         query.AddRange(
-                db.Users_tbl.Where(x=>x.Id == UserId)
-                .Include(x=>x.getMessage)
-                    .ThenInclude(x=> x.Message)
-                        .ThenInclude(x=> x.SenderUser)
-                .Include(x=>x.getMessage)
-                    .ThenInclude(x=> x.Message)
-                        .ThenInclude(x=>x.recivers)
-                            .ThenInclude(x=>x.Reciver)
-                .SelectMany(x=>x.getMessage.Select(z=>z.Message))
+                db.Users_tbl.Where(x => x.Id == UserId)
+                .Include(x => x.getMessage)
+                    .ThenInclude(x => x.Message)
+                        .ThenInclude(x => x.SenderUser)
+                .Include(x => x.getMessage)
+                    .ThenInclude(x => x.Message)
+                        .ThenInclude(x => x.recivers)
+                            .ThenInclude(x => x.Reciver)
+                .SelectMany(x => x.getMessage.Select(z => z.Message))
+                .Where(x => (x.SenderUserId == UserId && x.Status4Sender == 1) || x.recivers.Any(z => z.ReciverId == UserId && z.Status == 1))
                 .ToList()
             );
-            query.OrderByDescending(x=>x.Id);
+        query = query.OrderByDescending(x => x.Id).ToList();
 
         var DataCount = query.Count();
 
@@ -134,6 +136,7 @@ public class MessageController : Controller
             SenderUserId = SenderUserId,
             Subject = Subject,
             BodyText = BodyText,
+            Status4Sender = 1,
             CreateDateTime = DateTime.UtcNow
         };
 
@@ -203,6 +206,206 @@ public class MessageController : Controller
         Log.NewMsgLog(db, SenderUserId, messageId, 1, true);
         return View();
     }
+
+    public IActionResult Recives(int Id = 1)
+    {
+        var UserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var query = db.Users_tbl
+            .Where(x => x.Id == UserId)
+            .Include(x => x.getMessage)
+                .ThenInclude(x => x.Message)
+                    .ThenInclude(x => x.SenderUser)
+            .Include(x => x.getMessage)
+                .ThenInclude(x => x.Message)
+                    .ThenInclude(x => x.recivers)
+                        .ThenInclude(x => x.Reciver)
+            .SelectMany(x => x.getMessage.Select(z => z.Message))
+            .Where(x => (x.SenderUserId == UserId && x.Status4Sender == 1) || x.recivers.Any(z => z.ReciverId == UserId && z.Status == 1))
+            .OrderByDescending(x => x.Id)
+            .ToList();
+
+        var DataCount = query.Count();
+
+        var MessagesData = query.AsQueryable()
+        .Skip((Id - 1) * 10)
+        .Take(10)
+        .ToList();
+
+        ViewBag.Messages = MessagesData;
+        ViewBag.DataPageCount = (int)Math.Ceiling((double)DataCount / 10);
+        ViewBag.DataCount = DataCount;
+        ViewBag.DataPage = Id;
+        return View();
+    }
+
+    public IActionResult Sents(int Id = 1)
+    {
+
+        var UserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var query = db.Users_tbl.Where(x => x.Id == UserId) // بهینه سازی فوق العاده ، سرعت بیشتر با دیستابیس های بزرگتر
+           .Include(x => x.sentMessage)
+               .ThenInclude(x => x.recivers)
+                   .ThenInclude(x => x.Reciver)
+           .Include(x => x.sentMessage)
+               .ThenInclude(x => x.SenderUser)
+           .SelectMany(x => x.sentMessage)
+            .Where(x => (x.SenderUserId == UserId && x.Status4Sender == 1) || x.recivers.Any(z => z.ReciverId == UserId && z.Status == 1))
+           .OrderByDescending(x => x.Id)
+           .ToList();
+
+        var DataCount = query.Count();
+
+        var MessagesData = query.AsQueryable()
+        .Skip((Id - 1) * 10)
+        .Take(10)
+        .ToList();
+
+        ViewBag.Messages = MessagesData;
+        ViewBag.DataPageCount = (int)Math.Ceiling((double)DataCount / 10);
+        ViewBag.DataCount = DataCount;
+        ViewBag.DataPage = Id;
+        return View();
+    }
+
+    public IActionResult RecycleBin(int Id = 1)
+    {
+        var UserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+        var query = db.Users_tbl.Where(x => x.Id == UserId) // بهینه سازی فوق العاده ، سرعت بیشتر با دیستابیس های بزرگتر
+            .Include(x => x.sentMessage)
+                .ThenInclude(x => x.recivers)
+                    .ThenInclude(x => x.Reciver)
+            .Include(x => x.sentMessage)
+                .ThenInclude(x => x.SenderUser)
+            .SelectMany(x => x.sentMessage)
+            
+            .ToList();
+
+        query.AddRange(
+                db.Users_tbl.Where(x => x.Id == UserId)
+                .Include(x => x.getMessage)
+                    .ThenInclude(x => x.Message)
+                        .ThenInclude(x => x.SenderUser)
+                .Include(x => x.getMessage)
+                    .ThenInclude(x => x.Message)
+                        .ThenInclude(x => x.recivers)
+                            .ThenInclude(x => x.Reciver)
+                .SelectMany(x => x.getMessage.Select(z => z.Message))
+                .ToList()
+            );
+        query = query
+            .Where(x => x.Status4Sender == 2 || x.recivers.Any(z => z.ReciverId == UserId && z.Status == 2))
+            .OrderByDescending(x => x.Id)
+            .ToList();
+
+        var DataCount = query.Count();
+
+        var MessagesData = query.AsQueryable()
+        .Skip((Id - 1) * 10)
+        .Take(10)
+        .ToList();
+
+        ViewBag.Messages = MessagesData;
+        ViewBag.DataPageCount = (int)Math.Ceiling((double)DataCount / 10);
+        ViewBag.DataCount = DataCount;
+        ViewBag.DataPage = Id;
+        return View();
+    }
+
+    public IActionResult trash(int Id, string page)
+    {
+        string route;
+        switch (page)
+        {
+            case "index":
+                route = "index";
+                break;
+            case "recives":
+                route = "recives";
+                break;
+            case "sents":
+                route = "sents";
+                break;
+            case "trash":
+                route = "RecycleBin";
+                break;
+            default:
+                return RedirectToAction("error");
+        }
+
+        var UserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var check = db.Messages_tbl
+            .Where(x => x.Id == Id)
+            .Include(x => x.recivers)
+            .First();
+        if (check.SenderUserId == UserId)
+        {
+            if(check.Status4Sender == 3){
+                return RedirectToAction(route, "Message");
+            }
+            check.Status4Sender = 2;
+        }
+        else
+        {
+            if(check.recivers.FirstOrDefault(x => x.ReciverId == UserId).Status == 3){
+                return RedirectToAction(route, "Message");
+            }
+            check.recivers.FirstOrDefault(x => x.ReciverId == UserId).Status = 2;
+        }
+        db.Messages_tbl.Update(check);
+        db.SaveChanges();
+
+        return RedirectToAction(route, "Message");
+
+    }
+
+    public IActionResult delete(int Id)
+    {
+        var UserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var check = db.Messages_tbl
+            .Where(x => x.Id == Id)
+            .Include(x => x.recivers)
+            .First();
+        if (check.SenderUserId == UserId)
+        {
+            check.Status4Sender = 3;
+        }
+        else
+        {
+            check.recivers.FirstOrDefault(x => x.ReciverId == UserId).Status = 3;
+        }
+        db.Messages_tbl.Update(check);
+        db.SaveChanges();
+        return RedirectToAction("RecycleBin");
+    }
+
+    public IActionResult restore(int Id){
+        var UserId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var check = db.Messages_tbl
+            .Where(x => x.Id == Id)
+            .Include(x => x.recivers)
+            .First();
+        if (check.SenderUserId == UserId)
+        {
+            if(check.Status4Sender == 3){
+                return RedirectToAction("RecycleBin");
+            }
+
+            check.Status4Sender = 1;
+        }
+        else
+        {
+            if(check.recivers.FirstOrDefault(x => x.ReciverId == UserId).Status == 3){
+                return RedirectToAction("RecycleBin");
+            }
+
+            check.recivers.FirstOrDefault(x => x.ReciverId == UserId).Status = 1;
+        }
+        db.Messages_tbl.Update(check);
+        db.SaveChanges();
+        return RedirectToAction("RecycleBin");
+    }
+
     public IActionResult test()
     {
         db.Users_tbl.Add(new Users

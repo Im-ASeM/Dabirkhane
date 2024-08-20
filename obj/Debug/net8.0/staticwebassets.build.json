@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7RPUsDdkAO3nfiLkGprrdzYhvBDwY7LlIKqf/ZZL+hY=",
+  "Hash": "iYDIn2Uz/t0zO1xNIr1ByiMWMpdkF8fS0J0/eBG+vL8=",
   "Source": "Dabirkhane",
   "BasePath": "_content/Dabirkhane",
   "Mode": "Default",
@@ -34445,6 +34445,25 @@
       "OriginalItemSpec": "wwwroot\\uploads\\065f5227-7b9d-490c-ad27-44ce27d473f3.jpg"
     },
     {
+      "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\088a66e6-29bf-4705-9f1f-18ce0968d14a.png",
+      "SourceId": "Dabirkhane",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\",
+      "BasePath": "_content/Dabirkhane",
+      "RelativePath": "uploads/088a66e6-29bf-4705-9f1f-18ce0968d14a.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\088a66e6-29bf-4705-9f1f-18ce0968d14a.png"
+    },
+    {
       "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\0bc50bf5-ced0-4c38-a7c8-218ade0cee31.png",
       "SourceId": "Dabirkhane",
       "SourceType": "Discovered",
@@ -35659,6 +35678,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\b6d333e8-7a44-468f-8917-334fa9739152.png"
+    },
+    {
+      "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\be0e3b7c-2d14-43f0-9349-059049624122.png",
+      "SourceId": "Dabirkhane",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\",
+      "BasePath": "_content/Dabirkhane",
+      "RelativePath": "uploads/be0e3b7c-2d14-43f0-9349-059049624122.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\be0e3b7c-2d14-43f0-9349-059049624122.png"
     },
     {
       "Identity": "C:\\Users\\asemn\\Desktop\\qms-master\\Dabirkhane\\wwwroot\\uploads\\c3fe27cf-cb5a-4263-b526-75aaf77a9bcf.jpg",

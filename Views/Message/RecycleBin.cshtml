@@ -5,7 +5,7 @@
     <div class="card mb-4">
         <!-- Bootstrap Table with Header - Dark -->
         <div class="card container-fluid">
-            <h5 class="card-header heading-color">همه پیام ها</h5>
+            <h5 class="card-header heading-color">پیام های حذف شده</h5>
             <div class="table-responsive text-nowrap">
                 <table class="table">
                     <thead class="table-dark">
@@ -135,8 +135,11 @@
                                     <a class="btn btn-xs" href="/Email/ReturnEmail/@item.Id"><i
                                             class="bx bx-message-alt-edit me-1"></i>
                                     </a>
-                                    <a class="btn btn-xs" href="/Message/Trash/@item.Id?page=index"><i
-                                            class="bx bx-trash me-1"></i>
+                                    <a class="btn btn-xs" href="/Message/delete/@item.Id"><i
+                                            class="bx bx-trash me-1" onclick="return confirm('ایا از حذف این پیام اطمینان دارید ؟ به خاطر داشته باشید این عمل غیر قابل بازگردانی میباشد')"></i>
+                                    </a>
+                                    <a class="btn btn-xs" href="/Message/restore/@item.Id"><i
+                                            class="bx bx-reset me-1"></i>
                                     </a>
                                 </td>
 
@@ -153,57 +156,57 @@
 
                         {
                             <li class="page-item first">
-                                <a class="page-link" href="/Message/Index/1"><i class="tf-icon bx bx-chevrons-left"></i></a>
+                                <a class="page-link" href="/Message/trash/1"><i class="tf-icon bx bx-chevrons-left"></i></a>
                             </li>
                         }
                         @if (ViewBag.DataPage - 1 != 0)
 
                         {
                             <li class="page-item prev">
-                                <a class="page-link" href="/Message/Index/@(ViewBag.DataPage-1)"><i
+                                <a class="page-link" href="/Message/trash/@(ViewBag.DataPage-1)"><i
                                         class="tf-icon bx bx-chevron-left"></i></a>
                             </li>
                         }
                         @if (ViewBag.DataPage - 2 > 0)
                         {
                             <li class="page-item">
-                                <a class="page-link" href="/Message/Index/@(ViewBag.DataPage-2)">@(ViewBag.DataPage - 2)</a>
+                                <a class="page-link" href="/Message/trash/@(ViewBag.DataPage-2)">@(ViewBag.DataPage - 2)</a>
                             </li>
                         }
                         @if (ViewBag.DataPage - 1 > 0)
                         {
                             <li class="page-item">
-                                <a class="page-link" href="/Message/Index/@(ViewBag.DataPage-1)">@(ViewBag.DataPage -
+                                <a class="page-link" href="/Message/trash/@(ViewBag.DataPage-1)">@(ViewBag.DataPage -
                                 1)</a>
                             </li>
                         }
                         <li class="page-item active">
-                            <a class="page-link" href="/Message/Index/@ViewBag.DataPage">@ViewBag.DataPage</a>
+                            <a class="page-link" href="/Message/trash/@ViewBag.DataPage">@ViewBag.DataPage</a>
                         </li>
                         @if (ViewBag.DataPage + 1 <= ViewBag.DataPageCount)
                         {
                             <li class="page-item">
-                                <a class="page-link" href="/Message/Index/@(ViewBag.DataPage+1)">@(ViewBag.DataPage +
+                                <a class="page-link" href="/Message/trash/@(ViewBag.DataPage+1)">@(ViewBag.DataPage +
                                 1)</a>
                             </li>
                         }
                         @if (ViewBag.DataPage + 1 < ViewBag.DataPageCount)
                         {
                             <li class="page-item">
-                                <a class="page-link" href="/Message/Index/@(ViewBag.DataPage+2)">@(ViewBag.DataPage + 2)</a>
+                                <a class="page-link" href="/Message/trash/@(ViewBag.DataPage+2)">@(ViewBag.DataPage + 2)</a>
                             </li>
                         }
                         @if (ViewBag.DataPage + 1 <= ViewBag.DataPageCount)
                         {
                             <li class="page-item next">
-                                <a class="page-link" href="/Message/Index/@(ViewBag.DataPage+1)"><i
+                                <a class="page-link" href="/Message/trash/@(ViewBag.DataPage+1)"><i
                                         class="tf-icon bx bx-chevron-right"></i></a>
                             </li>
                         }
                         @if (ViewBag.DataPage + 1 < ViewBag.DataPageCount)
                         {
                             <li class="page-item last">
-                                <a class="page-link" href="/Message/Index/@ViewBag.DataPageCount"><i
+                                <a class="page-link" href="/Message/trash/@ViewBag.DataPageCount"><i
                                         class="tf-icon bx bx-chevrons-right"></i></a>
                             </li>
                         }

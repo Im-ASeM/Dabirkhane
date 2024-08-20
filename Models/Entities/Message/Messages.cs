@@ -6,6 +6,7 @@ public class Messages : Parent
     public Users? SenderUser { get; set; }
     public string? Subject { get; set; }
     public string? BodyText { get; set; }
+    public int Status4Sender { get; set; } // 1) normall | 2) trash | 3) delete
 
     public List<Files> files { get; set; }
     public List<Recivers> recivers { get; set; }
