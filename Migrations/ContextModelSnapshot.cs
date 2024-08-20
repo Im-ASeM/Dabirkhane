@@ -185,7 +185,7 @@ namespace Dabirkhane.Migrations
                     b.Property<int?>("MessageId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ReciverId")
+                    b.Property<int?>("ReciversId")
                         .HasColumnType("int");
 
                     b.Property<string>("Subject")
@@ -198,7 +198,7 @@ namespace Dabirkhane.Migrations
 
                     b.HasIndex("MessageId");
 
-                    b.HasIndex("ReciverId");
+                    b.HasIndex("ReciversId");
 
                     b.ToTable("Reply_tbl");
                 });
@@ -309,13 +309,15 @@ namespace Dabirkhane.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Reply", null)
+                    b.HasOne("Reply", "Reply")
                         .WithMany("files")
                         .HasForeignKey("ReplyId");
 
                     b.Navigation("CreatorUser");
 
                     b.Navigation("Message");
+
+                    b.Navigation("Reply");
                 });
 
             modelBuilder.Entity("Messages", b =>
@@ -365,13 +367,13 @@ namespace Dabirkhane.Migrations
                         .WithMany("replies")
                         .HasForeignKey("MessageId");
 
-                    b.HasOne("Recivers", "Reciver")
+                    b.HasOne("Recivers", "Recivers")
                         .WithMany()
-                        .HasForeignKey("ReciverId");
+                        .HasForeignKey("ReciversId");
 
                     b.Navigation("Message");
 
-                    b.Navigation("Reciver");
+                    b.Navigation("Recivers");
                 });
 
             modelBuilder.Entity("Messages", b =>

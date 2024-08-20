@@ -30656,6 +30656,70 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID14-ded6341e-0105-4ad1-a1a7-bcc2e61b2242.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID14_7-06cd287e-f302-4d25-8743-e98026d793c5.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Dabirkhane</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Dabirkhane</BasePath>
+      <RelativePath>uploads/EmailFiles/ID14_7-06cd287e-f302-4d25-8743-e98026d793c5.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID14_7-06cd287e-f302-4d25-8743-e98026d793c5.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID14_7-6289da27-9b1f-4980-8654-07e4004b9cba.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Dabirkhane</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Dabirkhane</BasePath>
+      <RelativePath>uploads/EmailFiles/ID14_7-6289da27-9b1f-4980-8654-07e4004b9cba.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID14_7-6289da27-9b1f-4980-8654-07e4004b9cba.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID14_7-9d044d37-a0de-465e-8311-c9f19d2c4c2e.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Dabirkhane</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Dabirkhane</BasePath>
+      <RelativePath>uploads/EmailFiles/ID14_7-9d044d37-a0de-465e-8311-c9f19d2c4c2e.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID14_7-9d044d37-a0de-465e-8311-c9f19d2c4c2e.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID14_7-d865d8d3-db2c-4138-8c2e-012f4420fd87.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Dabirkhane</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Dabirkhane</BasePath>
+      <RelativePath>uploads/EmailFiles/ID14_7-d865d8d3-db2c-4138-8c2e-012f4420fd87.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID14_7-d865d8d3-db2c-4138-8c2e-012f4420fd87.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID19-b3348aa8-064c-4c32-8378-378521e69fab.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>Dabirkhane</SourceId>
@@ -30975,6 +31039,70 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID22-c2cfc5fc-9e98-48fc-b299-0ba653303421.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID22_6-8c648ae2-8c5e-4f30-a97c-1da4f5c82349.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Dabirkhane</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Dabirkhane</BasePath>
+      <RelativePath>uploads/EmailFiles/ID22_6-8c648ae2-8c5e-4f30-a97c-1da4f5c82349.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID22_6-8c648ae2-8c5e-4f30-a97c-1da4f5c82349.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID22_6-8f153d48-f361-449a-9e78-568db35fc1a5.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Dabirkhane</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Dabirkhane</BasePath>
+      <RelativePath>uploads/EmailFiles/ID22_6-8f153d48-f361-449a-9e78-568db35fc1a5.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID22_6-8f153d48-f361-449a-9e78-568db35fc1a5.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID22_6-92effe40-5849-46cd-91dd-6f716df4abb6.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Dabirkhane</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Dabirkhane</BasePath>
+      <RelativePath>uploads/EmailFiles/ID22_6-92effe40-5849-46cd-91dd-6f716df4abb6.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID22_6-92effe40-5849-46cd-91dd-6f716df4abb6.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID23_8-17b60cba-f63c-4b07-b32a-965e2d010a18.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>Dabirkhane</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Dabirkhane</BasePath>
+      <RelativePath>uploads/EmailFiles/ID23_8-17b60cba-f63c-4b07-b32a-965e2d010a18.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID23_8-17b60cba-f63c-4b07-b32a-965e2d010a18.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\EmailFiles\ID24-d9347252-f3ba-4d91-85ec-ec1366e293a6.jpg))">
       <SourceType>Package</SourceType>

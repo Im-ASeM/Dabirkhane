@@ -95,8 +95,8 @@
                 </div>
                 <div class="col-xxl">
                     <div class="card mb-4">
-                        <form id="form" action="/Email/AddReply" enctype="multipart/form-data" method="post">
-                            <input type="hidden" name="MessageId" value="@ViewBag.msg.Id">
+                        <form id="form" action="/Message/AddReply" enctype="multipart/form-data" method="post">
+                            <input type="hidden" name="MsgId" value="@ViewBag.msg.Id">
                             <div class="card-header d-flex align-items-center justify-content-between">
                                 <h5 class="mb-0">پاسخ به نامه شماره @ViewBag.msg.SerialNumber</h5>
                             </div>

@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Dabirkhane.Migrations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -436,7 +437,7 @@ public class MessageController : Controller
             var msg = new
             {
                 check.Id,
-                check.files,
+                files = check.files.Where(x=>x.ReplyId == null).ToList(),
                 check.SerialNumber,
                 check.Subject,
                 check.BodyText,
@@ -497,6 +498,110 @@ public class MessageController : Controller
         }
     }
 
+    
+    [HttpPost]
+    public async Task<IActionResult> AddReply(int MsgId , string Subject , string BodyText , List<IFormFile>? files){
+        int userid = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var msgCheck = db.Messages_tbl
+            .Include(x=>x.recivers)
+            .FirstOrDefault(x=>x.Id == MsgId && x.recivers.Any(z=>z.ReciverId == userid));
+            
+        var check = new Reply{
+            BodyText = BodyText,
+            CreateDateTime = DateTime.UtcNow,
+            isRead = false,
+            MessageId = MsgId,
+            ReciversId = msgCheck==null ? null : msgCheck.recivers.First(x=>x.ReciverId == userid).Id,
+            Subject = Subject
+        };
+        db.Reply_tbl.Add(check);
+        db.SaveChanges();
+
+        if (files != null)
+        {
+            foreach (var item in files)
+            {
+
+                string FileExtension = Path.GetExtension(item.FileName);
+                var NewFileName = String.Concat(Guid.NewGuid().ToString(), FileExtension);
+                var path = $"{_env.WebRootPath}\\uploads\\EmailFiles\\ID{MsgId}_{check.Id}-{NewFileName}";
+                string PathSave = $"\\uploads\\EmailFiles\\ID{MsgId}_{check.Id}-{NewFileName}";
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await item.CopyToAsync(stream);
+                }
+
+                db.Files_tbl.Add(new Files
+                {
+                    FileName = item.FileName,
+                    CreatorUserId = userid,
+                    MessageId = MsgId,
+                    FilePath = PathSave,
+                    FileType = FileExtension,
+                    ReplyId = check.Id,
+                    CreateDateTime = DateTime.UtcNow
+                });
+                db.SaveChanges();
+            }
+        }
+        Log.NewMsgLog(db,userid,4,true,MsgId);
+        return RedirectToAction("index");
+    }
+
+    public IActionResult ReturnReply(int id , int page = 1){
+        var userId = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+        var check = db.Messages_tbl
+            .Where(x => x.Id == id)
+            .Include(x=>x.SenderUser)
+            .Include(x=>x.recivers)
+            .Include(x=>x.replies)
+                .ThenInclude(x=>x.files)
+            .Include(x=>x.replies)
+                .ThenInclude(x=>x.Recivers)
+                    .ThenInclude(x=>x.Reciver)
+            .FirstOrDefault();
+
+        if (check.replies == null)
+        {
+            return RedirectToAction("Index");
+        }
+        else if (!(check.SenderUserId == userId || check.recivers.Any(x => x.ReciverId == userId)))
+        {
+            Log.NewMsgLog(db,userId,3,false,check.Id);
+            return RedirectToAction("index");
+            //log false see
+        }
+        else
+        {
+            var Result = new{
+                check.Id,
+                check.SerialNumber,
+                repliesCount = (int)Math.Ceiling((double)check.replies.Count() / 10),
+                repliesPage = page,
+                replies = check.replies.Select(x=>new{
+                    x.Id,
+                    sender = x.ReciversId == null ? check.SenderUser : x.Recivers.Reciver,
+                    x.CreateDateTime,
+                    x.BodyText,
+                    x.files,
+                    x.isRead,
+                    x.Subject
+                }).Skip((page-1)*10).Take(10).ToList()
+            };
+            foreach (var item in Result.replies)
+            {
+                if(item.isRead== false && item.sender.Id != userId){
+                    db.Reply_tbl.Find(item.Id).isRead = true;
+                    db.SaveChanges();
+                    Log.NewMsgLog(db,userId,3,true,check.Id);
+                }
+            }
+            ViewBag.msg = Result;
+
+            return View();
+        }
+    }
+
     public IActionResult test()
     {
         db.Users_tbl.Add(new Users
@@ -546,6 +651,7 @@ public class MessageController : Controller
         db.SaveChanges();
         return Ok("done");
     }
+
     public IActionResult test2()
     {
         Log.NewMsgLog(db, 1, 1, false);

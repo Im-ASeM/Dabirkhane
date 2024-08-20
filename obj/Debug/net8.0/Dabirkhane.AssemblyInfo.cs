@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Dabirkhane")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98b61d51bb84376ac6a5b51e062ad6e7c7959143")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+57ca4b6074240819c503f06fc0c4488aaa5d43e6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Dabirkhane")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Dabirkhane")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

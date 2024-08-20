@@ -1,0 +1,155 @@
+@{
+    Layout = "_layoutMail";
+}
+
+<!-- Content -->
+<div class="container-xxl flex-grow-1 container-p-y">
+    @if (ViewBag.Error != null)    {
+        <div class="alert alert-solid-danger alert-dismissible d-flex align-items-center" role="alert">
+            @ViewBag.Error
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    <div class="card mb-4">
+        @if (ViewBag.msg.replies.Count != 0)
+
+        {
+            @foreach (var item in ViewBag.msg.replies)
+            {
+                <br>
+                <div class="card card-action mb-4">
+                    <div class="card-body">
+                        <div class="row md-3">
+                            <div class="card-header d-flex align-items-center justify-content-between">
+                                <h5 class="mb-0">
+                                    <img src="@item.sender.Profile" alt class="avatar avatar-online rounded-circle">
+                                    @item.sender.FirstName @item.sender.LastName (@item.sender.Username)
+                                </h5>
+                                <small class="text-muted float-end primary-font">
+                                    @PubDo.persianDate(item.CreateDateTime).Item1 @PubDo.persianDate(item.CreateDateTime).Item1
+                                </small>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="basic-default-company">موضوع</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly disabled class="form-control" id="basic-default-company"
+                                        placeholder="موضوع (subject) ایمیل را وارد کنید" name="Subject" value="@item.Subject">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">پیام</label>
+                                <div class="col-sm-10">
+                                    <div class="form-control">
+                                        @Html.Raw(item.BodyText)
+                                    </div>
+                                </div>
+                            </div>
+                            @if (item.files.Count != 0)                            {
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-form-label" for="upload">فایل های پیوست شده</label>
+                                    <div class="col-sm-10">
+                                        @foreach (var item2 in item.files)                                        {
+                                            <a type="button" class="btn btn-primary" href="@item2.FilePath"
+                                                target="_blank">@item2.FileName</a>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+            }
+
+        }
+        <div class="demo-inline-spacing">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    @if (ViewBag.msg.repliesPage - 2 > 0)                    {
+                        <li class="page-item first">
+                            <a class="page-link" href="/Message/ReturnEvant/@ViewBag.msg.Id?page=1"><i
+                                    class="tf-icon bx bx-chevrons-left"></i></a>
+                        </li>
+                    }
+                    @if (ViewBag.msg.repliesPage - 1 != 0)                    {
+                        <li class="page-item prev">
+                            <a class="page-link"
+                                href="/Message/ReturnEvant/@ViewBag.msg.Id?page=@(ViewBag.msg.repliesPage-1)"><i
+                                    class="tf-icon bx bx-chevron-left"></i></a>
+                        </li>
+                    }
+                    @if (ViewBag.msg.repliesPage - 2 > 0)
+
+
+                    {
+                        <li class="page-item">
+                            <a class="page-link"
+                                href="/Message/ReturnEvant/@ViewBag.msg.Id?page=@(ViewBag.msg.repliesPage-2)">@(ViewBag.msg.repliesPage
+                            -
+                            2)</a>
+                        </li>
+                    }
+                    @if (ViewBag.msg.repliesPage - 1 > 0)
+
+
+                    {
+                        <li class="page-item">
+                            <a class="page-link"
+                                href="/Message/ReturnEvant/@ViewBag.msg.Id?page=@(ViewBag.msg.repliesPage-1)">@(ViewBag.msg.repliesPage
+                            -
+                            1)</a>
+                        </li>
+                    }
+                    <li class="page-item active">
+                        <a class="page-link"
+                            href="/Message/ReturnEvant/@ViewBag.msg.Id?page=@ViewBag.msg.repliesPage">@ViewBag.msg.repliesPage</a>
+                    </li>
+                    @if (ViewBag.msg.repliesPage + 1 <= ViewBag.msg.repliesCount)
+
+
+                    {
+                        <li class="page-item">
+                            <a class="page-link"
+                                href="/Message/ReturnEvant/@ViewBag.msg.Id?page=@(ViewBag.msg.repliesPage+1)">@(ViewBag.msg.repliesPage
+                            +
+                            1)</a>
+                        </li>
+                    }
+                    @if (ViewBag.msg.repliesPage + 1 < ViewBag.msg.repliesCount)
+
+
+                    {
+                        <li class="page-item">
+                            <a class="page-link"
+                                href="/Message/ReturnEvant/@ViewBag.msg.Id?page=@(ViewBag.msg.repliesPage+2)">@(ViewBag.msg.repliesPage
+                            +
+                            2)</a>
+                        </li>
+                    }
+                    @if (ViewBag.msg.repliesPage + 1 <= ViewBag.msg.repliesCount)
+
+
+                    {
+                        <li class="page-item next">
+                            <a class="page-link"
+                                href="/Message/ReturnEvant/@ViewBag.msg.Id?page=@(ViewBag.msg.repliesPage+1)"><i
+                                    class="tf-icon bx bx-chevron-right"></i></a>
+                        </li>
+                    }
+                    @if (ViewBag.msg.repliesPage + 1 < ViewBag.msg.repliesCount)
+
+
+                    {
+                        <li class="page-item last">
+                            <a class="page-link"
+                                href="/Message/ReturnEvant/@ViewBag.msg.Id?page=@ViewBag.msg.repliesCount"><i
+                                    class="tf-icon bx bx-chevrons-right"></i></a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<!--/ Content -->

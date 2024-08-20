@@ -8,6 +8,8 @@ public class Files : Parent
     public Users CreatorUser { get; set; }
     public int MessageId { get; set; }
     public Messages Message { get; set; }
+    public int? ReplyId { get; set; }
+    public Reply? Reply { get; set; }
     public string? FilePath { get; set; }
     public string? FileType { get; set; }
 
