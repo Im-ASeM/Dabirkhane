@@ -25,7 +25,7 @@ public class AuthController : Controller
     {
         if (User.Identity.IsAuthenticated)
         {
-            return RedirectToAction("index", "email");
+            return RedirectToAction("index", "Message");
         }
         if (db.Users_tbl.Count() == 0)
         {
@@ -103,7 +103,7 @@ public class AuthController : Controller
                 return RedirectToAction("ReportSeen", "home", new { area = "admin" });
             }
 
-            return RedirectToAction("index", "email");
+            return RedirectToAction("index", "Message");
         }
         return View();
     }
@@ -111,6 +111,10 @@ public class AuthController : Controller
     [HttpGet]
     public IActionResult Register()
     {
+        if (User.Identity.IsAuthenticated)
+        {
+            return RedirectToAction("index", "Message");
+        }
         return View();
     }
 
@@ -194,6 +198,10 @@ public class AuthController : Controller
     [HttpGet]
     public IActionResult Forget()
     {
+        if (User.Identity.IsAuthenticated)
+        {
+            return RedirectToAction("index", "Message");
+        }
         return View();
     }
 
@@ -348,6 +356,7 @@ public class AuthController : Controller
     }
 
     [HttpPost]
+    [Authorize]
     public IActionResult resetPassword(string password)
     {
         var check =
@@ -361,7 +370,7 @@ public class AuthController : Controller
                 .BCrypt
                 .HashPassword(password + salt + check.Username.ToLower());
         db.SaveChanges();
-        return RedirectToAction("index", "email");
+        return RedirectToAction("index", "Message");
     }
 
     private void SmsCode(string Code, string Phone)

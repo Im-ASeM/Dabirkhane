@@ -9,83 +9,83 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Dabirkhane
 build_property.RootNamespace = Dabirkhane
-build_property.ProjectDir = C:\Users\asemn\Desktop\qms-master\Dabirkhane\
+build_property.ProjectDir = c:\Users\asemn\Desktop\qms-master\Dabirkhane\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\asemn\Desktop\qms-master\Dabirkhane
+build_property.MSBuildProjectDirectory = c:\Users\asemn\Desktop\qms-master\Dabirkhane
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Auth/forget.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Auth/forget.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxmb3JnZXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Auth/login.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Auth/login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxsb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Auth/NotAuthorized.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Auth/NotAuthorized.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxOb3RBdXRob3JpemVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Auth/resetPassword.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Auth/resetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxyZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Auth/Verify.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Auth/Verify.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxWZXJpZnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Home/Index.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Home/Privacy.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Message/Index.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Message/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Message/NewMsg.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Message/NewMsg.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZVxOZXdNc2cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Message/Recives.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Message/Recives.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZVxSZWNpdmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Message/RecycleBin.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Message/RecycleBin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZVxSZWN5Y2xlQmluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Message/Sents.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Message/Sents.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVzc2FnZVxTZW50cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Shared/_ValidationScriptsPartial.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/User/ProfileUser.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/User/ProfileUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/User/UserSetting.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/User/UserSetting.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVc2VyU2V0dGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/_ViewImports.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/_ViewStart.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Shared/_Layout.cshtml]
+[c:/Users/asemn/Desktop/qms-master/Dabirkhane/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-hqoybz1394
