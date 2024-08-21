@@ -98,11 +98,6 @@ public class AuthController : Controller
 
             HttpContext.SignInAsync(princpal, properties);
 
-            if (Username.ToLower() == "admin")
-            {
-                return RedirectToAction("ReportSeen", "home", new { area = "admin" });
-            }
-
             return RedirectToAction("index", "Message");
         }
         return View();
